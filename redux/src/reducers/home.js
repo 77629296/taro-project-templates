@@ -1,18 +1,17 @@
 import {
-  USERINFO,
-} from '@constants/user'
+  HOME_INFO,
+} from '@/constants/home'
 
 const INITIAL_STATE = {
-  userInfo: null,
+  homeInfo: {},
 }
 
 export default function home(state = INITIAL_STATE, action) {
-  console.warn(action)
   switch(action.type) {
-    case USERINFO: {
+    case HOME_INFO: {
       return {
         ...state,
-        authCode: action.payload
+        homeInfo: action.payload
       }
     }
     default:

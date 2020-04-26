@@ -1,16 +1,12 @@
 import '@tarojs/async-await'
-<%if (locals.typescript) {-%>
-import Taro, { Component, Config } from '@tarojs/taro'
-<%} else { -%>
 import Taro, { Component } from '@tarojs/taro'
-<%}-%>
 import { Provider } from '@tarojs/redux'
 
 import Index from './pages/index'
 
 import configStore from './store'
 
-import './app.<%= cssExt %>'
+import './app.less'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -22,17 +18,9 @@ const store = configStore()
 
 class App extends Component {
 
-<%if (locals.typescript) {-%>
-  /**
-   * 指定config的类型声明为: Taro.Config
-   *
-   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
-   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
-   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
-   */
-<%}-%>
-  config<%if (locals.typescript) {%>: Config<%}%> = {
+  config = {
     pages: [
+      'pages/home/home',
       'pages/index/index'
     ],
     window: {
@@ -42,12 +30,20 @@ class App extends Component {
       navigationBarTextStyle: 'black'
     },
     tabBar: {
-      list: [{
-        pagePath: 'pages/index/index',
-        text: '首页',
-        iconPath: './assets/images/tab_index.png',
-        selectedIconPath: './assets/images/tab_index_s.png'
-      }],
+      list: [
+        {
+          pagePath: 'pages/home/home',
+          text: '首页',
+          iconPath: './assets/images/tab_index.png',
+          selectedIconPath: './assets/images/tab_index_s.png'
+        },
+        {
+          pagePath: 'pages/index/index',
+          text: 'index',
+          iconPath: './assets/images/tab_index.png',
+          selectedIconPath: './assets/images/tab_index_s.png'
+        }
+      ],
       color: '#8a8a8a',
       selectedColor: '#2d8cf0',
       backgroundColor: '#ffffff',

@@ -4,10 +4,7 @@
  */
 /* eslint-disable */
 export const host = HOST
-export const domain = DOMAIN
 /* eslint-enable */
 
 // home
-export const API_HOME = `/homepage/v1/homepages:queryByDistrictId`
-
-export const API_GET_ALI_USER_ID = `/thirdparty/v1/users/thirdparty/login`
+export const API_HOME = `${host}/xhr/index/index.json`
