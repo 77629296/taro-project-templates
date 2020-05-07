@@ -2,11 +2,11 @@ import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 
-import Index from './pages/index'
+import Index from './pages/home'
 
 import configStore from './store'
 
-import './app.less'
+import '@/styles/index.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -20,8 +20,9 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/home/home',
-      'pages/index/index'
+      'pages/home/index',
+      'pages/user/index',
+      'pages/login/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -30,25 +31,21 @@ class App extends Component {
       navigationBarTextStyle: 'black'
     },
     tabBar: {
+      color: "#666",
+      selectedColor: "#b4282d",
+      custom: true,
       list: [
         {
-          pagePath: 'pages/home/home',
+          pagePath: 'pages/home/index',
           text: '首页',
-          iconPath: './assets/images/tab_index.png',
-          selectedIconPath: './assets/images/tab_index_s.png'
         },
         {
-          pagePath: 'pages/index/index',
-          text: 'index',
-          iconPath: './assets/images/tab_index.png',
-          selectedIconPath: './assets/images/tab_index_s.png'
+          pagePath: 'pages/user/index',
+          text: '我的',
         }
       ],
-      color: '#8a8a8a',
-      selectedColor: '#2d8cf0',
-      backgroundColor: '#ffffff',
-      borderStyle: 'white'
     },
+    usingComponents: {},
     navigateToMiniProgramAppIdList: [
     ]
   }

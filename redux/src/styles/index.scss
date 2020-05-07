@@ -1,0 +1,9 @@
+
+/* 引入 Taro UI 默认样式 按需引入 */
+@import "~taro-ui/dist/style/components/tab-bar.scss";
+@import "~taro-ui/dist/style/components/badge.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import './iconfont.scss';
+@import "./mixins.scss";
+@import './theme.scss';
+@import './reset.scss';

@@ -1,4 +1,5 @@
 const path = require('path')
+
 const config = {
   projectName: '<%= projectName %>',
   date: '<%= date %>',
@@ -30,6 +31,16 @@ const config = {
   alias: {
     '@': path.resolve(__dirname, '..', 'src'),
   },
+  copy: {
+    patterns: [
+      {
+        from: `project.config.${process.env.NODE_ENV}.json`,
+        to: 'dist/project.config.json',
+      },
+    ],
+    options: {
+    }
+  },
   weapp: {
     module: {
       postcss: {
@@ -41,12 +52,6 @@ const config = {
               'Android >= 4.1',
               'ios >= 8'
             ]
-          }
-        },
-        pxtransform: {
-          enable: true,
-          config: {
-
           }
         },
         url: {
@@ -86,6 +91,19 @@ const config = {
             namingPattern: 'module', // 转换模式，取值为 global/module
             generateScopedName: '[name]__[local]___[hash:base64:5]'
           }
+        }
+      }
+    }
+  },
+  // 小程序统一配置
+  mini: {
+    postcss: {
+      pxtransform: {
+        enable: true,
+        config: {
+          selectorBlackList: [
+            /^.van-.*?$/
+          ]
         }
       }
     }

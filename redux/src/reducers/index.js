@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux'
+import common from './common'
 import home from './home'
+import user from './user'
 
 export default combineReducers({
-  home
+  common,
+  home,
+  user,
 })
